@@ -85,17 +85,20 @@ span {
 .center {
   margin-left: auto;
   margin-right: auto;
-  color: green;
+  color: navy;
   text-align: center;
   height: 100px;
-  width: 500px;
-  border: 1px solid black;
-  border-collapse: collapse;
-}
+  width: 600px;
+  }
 
-tr {
-  border: 6px solid black;
-}
+  th {color: gold;
+      background-color: navy;
+        text-decoration: underline;}
+
+  td {color: navy;
+      background-color: gold;}
+
+
 
 #topthree {
   text-decoration: underline;
