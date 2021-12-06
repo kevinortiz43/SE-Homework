@@ -13,4 +13,4 @@ for (let index = 0; index < Sentence.length; index++) {
   }
 }
 
-console.log(Word + " shows up " + counter + " times ");
+console.log(Word + " shows up " + counter + " time(s) ");
