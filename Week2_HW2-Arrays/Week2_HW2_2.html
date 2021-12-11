@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: aquamarine">
+    <h1 id="original"></h1>
+
+    <h1 id="searcher"></h1>
+
+    <h1 id="pointer"></h1>
+
+    <script>
+      // 2. Write a program to look for the user input in an array.
+      //When it finds the first occurrence, display
+      //the value and the index of that value
+
+      let userInput = prompt(
+        "Do you want pizza, burgers, fries, sushi, salad?"
+      ).toLowerCase();
+
+      let menuArray = ["pizza", "burgers", "fries", "sushi", "salad"];
+
+      let finder = menuArray.filter((food) => userInput == food);
+
+      let indexFinder = menuArray.indexOf(userInput);
+
+      document.getElementById(
+        "original"
+      ).innerHTML = `This is our menu: ${menuArray} `;
+
+      document.getElementById(
+        "searcher"
+      ).innerHTML = `This is what you chose: ${finder}. If nothing shows up that means we do not have that item in our array.`;
+
+      document.getElementById(
+        "pointer"
+      ).innerHTML = `${indexFinder} is the index positon of ${userInput} in our menu. If -1 shows up it means we don't have that item in our array.`;
+    </script>
+  </body>
+</html>

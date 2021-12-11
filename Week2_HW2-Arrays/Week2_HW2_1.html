@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <h1 id="original"></h1>
+    <h1 id="modified"></h1>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: aquamarine;">
+
+    <h1>Original array</h1>
+
+    <h1 id="original"></h1>
+
+    <h1>Sum of the array</h1>
+
+    <h1 id="results"></h1>
+
+    <script>
+      let numberArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+      // my original array
+
+      let zero = 0;
+
+      // creating a variable = 0;
+      // this is because we want 0 to add to
+      // all our numbers in the array
+
+      numberArr.map((x) => zero += x)
+
+        // sum += num 0 plus each number in the array
+        // we don't use return in this scenario because
+        // return is putting our answers back into an array
+    
+
+
+      document.getElementById("original").innerHTML = numberArr;
+
+      document.getElementById("results").innerHTML = zero;
+    
+    </script>
+  </body>
+</html>

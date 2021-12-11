@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: aquamarine;">
+    <h1 id="billboard"></h1>
+
+    <h1 id="results"></h1>
+    <script>
+      // 3. Write a program to find the
+      // longest element in a string array.
+
+      let stringArr = [
+        "wow",
+        "long",
+        "dope",
+        "hypontenuse",
+        "circle",
+        "truck",
+        "cat",
+      ];
+
+      let longestString = stringArr[0];
+
+      for (let i = 0; i < stringArr.length; i++) {
+        //I want to compare each element of the string to the next one
+        if (stringArr[i].length > longestString.length) {
+          //then I want save, I want it to come out the string
+          longestString = stringArr[i];
+        }
+      }
+
+      console.log(longestString);
+
+      console.log(stringArr);
+      console.log(longestString);
+
+      document.getElementById(
+        "billboard"
+      ).innerHTML = `This is our original string array ${stringArr}`;
+
+      document.getElementById(
+        "results"
+      ).innerHTML = `This is the longest element in our string array ${longestString}`;
+    </script>
+  </body>
+</html>
