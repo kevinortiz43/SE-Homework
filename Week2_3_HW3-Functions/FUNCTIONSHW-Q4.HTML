@@ -15,8 +15,8 @@
       //HINT: For index, take a look at the Syntax and Parameters sections in the MDN DocLinks to an external site. for Array.map
       
        let  strArr= [" the ", " first ", " word ", " is ", " this ", " one "];
-        
-       const finder = (Parameters) =>  {return Parameters.map((word,index) => `${word} ${index}`)};
+
+       const finder = (Parameters) => Parameters.map((word,index) => `${word} ${index}`);
 
        document.getElementById("Array").innerHTML = ` This is the original array: ${strArr}`;
        document.getElementById("Index").innerHTML = ` This is the index of each array: ${finder(strArr)}`;
