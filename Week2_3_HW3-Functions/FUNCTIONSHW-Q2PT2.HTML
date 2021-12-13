@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: brown">
+    <h1 id="original"></h1>
+    <h1 id="display"></h1>
+    <script>
+      //2b. Create a function called fahrenheitToCelsius:
+      // Now take a Fahrenheit temperature from the user and convert 
+      // it to Celsius
+      // Return string as output: "SOMETHING degrees Fahrenheit
+      // is SOMETHING degrees Celsius"
+
+      let userInput = prompt( "Enter your temperature in Fahrenheit and we will convert it to Celsius").split(" ");
+
+      const myFunction = (Parameters) => Parameters.map((temp) => (((temp - 32) * 5) / 9));
+
+      document.getElementById("original").innerHTML = `This is the original temperature  ${userInput} degrees Fahrenheit`;
+      document.getElementById("display").innerHTML = `This is after we convert it to celsius ${myFunction(userInput)} Celsius`;
+    </script>
+  </body>
+</html>

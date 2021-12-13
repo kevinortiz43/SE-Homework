@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+    <h1 id="Array"></h1>
+    <h1 id="Index"></h1>
+    <body style="background-color: brown">
+    <script>
+
+      //4. Traverse through an array (either number or string array) and display each value with their index position using Array.map method
+      //HINT: For index, take a look at the Syntax and Parameters sections in the MDN DocLinks to an external site. for Array.map
+      
+       let  strArr= [" the ", " first ", " word ", " is ", " this ", " one "];
+        
+       const finder = (Parameters) =>  {return Parameters.map((word,index) => `${word} ${index}`)};
+
+       document.getElementById("Array").innerHTML = ` This is the original array: ${strArr}`;
+       document.getElementById("Index").innerHTML = ` This is the index of each array: ${finder(strArr)}`;
+      </script>
+  </body>
+</html>

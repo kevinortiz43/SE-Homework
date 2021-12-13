@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <h1 id="originalArray"></h1>
+  <h1 id="person"></h1>
+  <h1 id="searching"></h1>
+  <body style="background-color: brown">
+    <script>
+      //3. Create an array of at least five Student objects with the following
+      //properties: name, activity, gender
+      // Filter all those students who are into swimming
+      // Filter all those students who are in the activity entered by the
+      //user. For example, if the user enters "Basketball" display
+      // only students with basketball as their activity
+
+      let userInput = prompt("Please choose basketball or swimming").toLowerCase();
+
+      let person =
+       [
+            {
+            firstName: "Blake",
+            lastName: "Blight",
+            activities: "basketball",
+            gender: "Male",
+            },
+
+            {
+            firstName: "Sarah",
+            lastName: "Candy",
+            activities: "swimming",
+            gender: "Female",
+            },
+
+            {
+            firstName: "Mark",
+            lastName: "The Shark",
+            activities: "basketball",
+            gender: "Male",
+            },
+
+            {
+            firstName: "Jenny",
+            lastName: "Acevedo",
+            activities: "basketball",
+            gender: "Female",
+            },
+            {
+            firstName: "Sonny",
+            lastName: "Max",
+            activities: "swimming",
+            gender: "Male",
+            },
+
+            {
+            firstName: "Ana",
+            lastName: "Max",
+            activities: "swimming",
+            gender: "Female",
+            },
+        ];
+        
+            const getObjectStr = (personArray) => {
+            let finalString = " "; personArray.map((word) => (finalString += `${word.firstName} ${word.lastName} ${word.activities} ${word.gender}` + `<br>`)     );
+            return finalString;
+            };
+
+            const searchableAct = (person) => person.filter((act) => act.activities.includes(userInput));
+            document.getElementById("originalArray").innerHTML =`This is our list: <br> ${getObjectStr(person)}`;
+            document.getElementById("person").innerHTML = ` This is what you searched: <br> ${getObjectStr(searchableAct(person))}`;
+    </script>
+  </body>
+</html>
