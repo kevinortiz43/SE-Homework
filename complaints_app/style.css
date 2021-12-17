@@ -5,26 +5,12 @@ body {
   text-align: center;
 }
 
-.mainButton {
-  
-    justify-content: space-between;
-  
-}
+.mainButton {  justify-content: space-between;}
 
-p {
-  color: red;
-}
+p {color:red;}
 
-h3 {
-  color: blue;
- 
-}
+h3 {color:blue;}
 
-button{
-    color: white;
-    background-color: darkslategray;
-}
+button {color: white; background-color: darkslategray;}
 
-#ofComplaints{
-    color: black ;
-}
+#ofComplaints {color: black;}
