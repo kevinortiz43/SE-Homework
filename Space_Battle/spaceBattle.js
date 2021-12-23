@@ -1,44 +1,54 @@
-let prompt = require("prompt-sync")()
-let enemyCount = 6;
+let attackButton = document.getElementById("attackButton");
+let displayUserHull = document.getElementById("hull");
+let displayUserFirePower = document.getElementById("firepower");
+let displayUserAccuracy = document.getElementById("accuracy");
+let displayEnemyHull = document.getElementById("EHull");
+let displayEnemyFirePower = document.getElementById("EFirePower");
+let displayEnemyAccuracy = document.getElementById("EAccuracy");
+let displayMessage1 = document.getElementById("messages")
+
+
+
+let enemyCount = 7;
+
 const user = {
   hull: 20,
   firePower: 5,
   accuracy: 0.7,
-  isOperable: true,
-
+  
   attack(alien) {
-    let message1 = ` `;
+      alert(` User turn `);
+      
     let toHit = Math.random();
-    let userInput1 = prompt(` Do you want to attack or retreat? `);
-    if (userInput1.toLowerCase() == `attack`) {
-      if (this.accuracy > toHit) {
-        alien.hull = alien.hull - this.firePower;
-        if (alien.hull > 0) {
-          message1 = ` Enemy has ${alien.hull} hull point(s) left. `;
-         //if alien.hull > 0 go back to our turn and fight 
-         //we must keep fighting until, aliens turn to fight back
-        // until one or the other dies
-        //if the alien still has health? what do we want to happen then?
-        //aliens turn
-        
+    let userInput1 = prompt(`Do you want to attack or retreat?`);
+    if (this.hull > 0) {
+      if (enemyCount > 0) {
+        if (userInput1.toLowerCase() == `attack`) {
+          if (this.accuracy > toHit) {
+            alien.hull = alien.hull - this.firePower;
+            if (alien.hull > 0) {
+              alert (` Enemy has ${alien.hull} hull point(s) left. `);
+            } else {
+              alert (` You have destroyed the enemy! `);
+              alert (` There are ${enemyCount} ships left `);
+              enemyCount--;
+            }
+          } else {
+            alert (` You have missed the alien. `);
+            enemy.attack1;
+          }
+        } else if (userInput1.toLowerCase() == `retreat`) {
+          alert (` You were routed, Game over `);
         } else {
-          message1 = ` You have destroyed the enemy! `;
-          console.log(` this many left ${enemyCount}`)
-          enemyCount--
-          // alien.hull < 0 we go down a round
-          //when the alien loses all its health, BRING ON A NEW SHIP!  
+          alert (` Please input appropriate response `);
         }
       } else {
-        message1 = ` You have missed the alien. `;
+        alert (` You destroyed all enemy ships! `);
       }
-    } else if (userInput1.toLowerCase() == `retreat`) {
-      message1 = ` You were routed, Game over `;
     } else {
-      message1 = `Please input appropriate response.`
-      //this.attack(alien)
-      //come back to stop for unnecessary response
+      alert (` you were killed`);
     }
-    return message1;
+    return alert;
   },
 };
 
@@ -46,79 +56,61 @@ const enemy = {
   hull: Math.round(Math.random() * (6 - 3) + 3), //randomize hull strength //
   firePower: Math.round(Math.random() * (4 - 2) + 2), //randomize firepower //2-4
   accuracy: Math.random() * (0.8 - 0.6) + 0.6, //*  // randomize accuracy
-  isOperable: true,
-
+  
   attack1(human) {
-    let message2 = ``;
+    alert(` Enemy turn `);
+    
     let toHit = Math.random();
-    if (this.hull > 0) {
-      // starts fighting the humans
+    if (human.hull > 0) {
       if (this.accuracy > toHit) {
         human.hull = human.hull - this.firePower;
-        //dynamically being changed, reassigning value for hull.
         if (human.hull > 0) {
-          //pass back to user
-          //human.isOperable = true;
-          message2 = `You were hit! you have ${human.hull} hull points left`;
+          alert(` You were hit! you have ${human.hull} hull points left `);
+          
         } else {
-          //game over
-          //human.isOperable = false;
-          message2 = `you were killed`;
+          alert(` You were killed `);
         }
       } else {
-        message2 = `The enemy missed`;
-        //pass back to user
-      }
-    } else {
-      //message2 = `The enemy has been killed`;
-      //bring on new enemy/run function back
-    }
-    return message2;
+        alert(` The enemy missed `);
+            }
+        } else {
+     }
+    return alert;
   },
 };
 
+displayUserStats(user);
 
+displayEnemyStats(enemy);
 
-// const battle = (user, enemy) => {
-//   if (user.hull >0  && enemy.hull > 0) {
-//     console.log(`users turn`);
-//     console.log(user.attack(enemy));
-//   } else console.log(`enemy turn`);
-//   //enemy.attack1(human)
-//   // results = enemy.attack(user);
-//   console.log(enemy.attack1(user));
-// };
-
-// console.log(battle(user, enemy));
-
-
-if (user.hull > 0 && enemy.hull > 0 ){
-for(i=0; i<enemyCount; i++){
-    console.log(user.attack(enemy))
-    console.log(enemy.attack1(user))  
-  }
+function displayUserStats() {
+  displayUserHull.innerHTML = user.hull;
+  displayUserFirePower.innerHTML = user.firePower;
+  displayUserAccuracy.innerHTML = user.accuracy;
 }
 
-// //input for attack no loop
-// //trigger attack 6 times here
-  
-// return msg
-//alert let message = computer .attack
-// you don't want to return before you make the function call
-///  computer.attack(player);
-//return something from computer. attack, we need both returns
-// return computer .attack
-//let results = computer.attack and store it
-// rturn those values.
-// alert whaterver computer. attack is
+function displayEnemyStats() {
+  displayEnemyHull.innerHTML = enemy.hull;
+  displayEnemyFirePower.innerHTML = enemy.firePower;
+  displayEnemyAccuracy.innerHTML = enemy.accuracy;
+}
 
-// round system 
-// counter 0 
-// user 0
-// enemy 1
-// set round back 0
+function displayMessage(x) {
+    alert(x);
+  }
 
-//problems with code
-//doesnt run it back
-    //taking the enemy cap into account
-        //no loop yet*******
+
+
+function displayBattle (){
+    if (user.hull > 0 && enemy.hull > 0) {
+        while (enemyCount > -1 && user.hull > 0 ) { //review
+          console.log(user.attack(enemy));
+          console.log(enemy.attack1(user));
+        } 
+      }  
+}
+
+attackButton.addEventListener("click", () => {
+  console.log(displayBattle())
+    }
+);
